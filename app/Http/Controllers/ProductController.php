@@ -11,4 +11,9 @@ class ProductController extends Controller
         $products = Product::all();
         return view('admin.product.home', compact('products'));
     }
+
+    public function crud()
+    {
+        return view('admin.product.crud');
+    }
 }
