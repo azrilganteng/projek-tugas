@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,6 +27,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
     Route::get('admin/products', [ProductController::class, 'index'])->name('admin.products');
+   
 });
 
 require __DIR__.'/auth.php';
