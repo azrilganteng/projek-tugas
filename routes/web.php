@@ -3,14 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductsController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource('products', ProductsController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,7 +24,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
-    Route::get('admin/products', [ProductsController::class, 'index'])->name('admin.products');
+    Route::get('admin/product', [HomeController::class, 'create'])->name('admin.product');
+    Route::get('admin/product/create', [HomeController::class, 'create'])->name('admin.product.create');
+    
 
     // routes/web.php
     // Route::get('admin/products/crud', [ProductController::class, 'crud'])->name('admin.product.crud');
