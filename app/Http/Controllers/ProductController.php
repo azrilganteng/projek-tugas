@@ -8,12 +8,8 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
-        $products = Product::all();
-        return view('admin.product.home', compact('products'));
+      
+        return view('admin.product.home');
     }
 
-    public function crud()
-    {
-        return view('admin.product.crud');
-    }
 }
