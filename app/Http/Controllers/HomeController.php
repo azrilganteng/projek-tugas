@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 use App\Models\products;
 use Illuminate\Auth\Events\Validated;
