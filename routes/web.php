@@ -24,10 +24,14 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
-    Route::get('admin/product', [HomeController::class, 'create'])->name('admin.product');
-    Route::get('admin/product/create', [HomeController::class, 'create'])->name('admin.product.create');
+    // Route::get('admin/product', [HomeController::class, 'create'])->name('admin.product');
+    Route::post('admin/product/create', [HomeController::class, 'store'])->name('admin.product.store');
+    Route::get('admin/product/create', [HomeController::class, 'create'])->name('admin.product.create');  
+    Route::get('admin/product/{id}/edit', [HomeController::class, 'edit'])->name('admin.product.edit');
+    Route::put('/products/{id}', [HomeController::class, 'update'])->name('product.update');
+    Route::delete('admin/product/{id}/hapus', [HomeController::class, 'destroy'])->name('product.destroy');
     
-
+   
     // routes/web.php
     // Route::get('admin/products/crud', [ProductController::class, 'crud'])->name('admin.product.crud');
 
