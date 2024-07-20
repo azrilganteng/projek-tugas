@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+
+Route::get('export-excel',[UserController::class, 'export_excel']);
 
 
 Route::get('/', function () {

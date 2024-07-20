@@ -113,37 +113,6 @@ class HomeController extends Controller
         }
         
 
-        // Method to show the edit form
-    // public function edit($id)
-    // {
-    //     $productS = products::findOrFail($id);
-    //     return view('admin.product.edit', compact('productS'));
-    // }
-
-    // // Method to update the product
-    // public function update(Request $request, $id)
-    // {
-    //     $product = products::findOrFail($id);
-
-    //     $request->validate([
-    //         'nama' => 'required|string|max:255',
-    //         'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //         'harga' => 'required|numeric',
-    //         'stok' => 'required|integer',
-    //     ]);
-
-    //     if ($request->hasFile('gambar')) {
-    //         $imagePath = $request->file('gambar')->store('products', 'public');
-    //         $product->image = $imagePath;
-    //     }
-
-    //     $product->nama = $request->input('nama');
-    //     $product->harga = $request->input('harga');
-    //     $product->stok = $request->input('stok');
-    //     $product->save();
-
-    // }
-    
 
 
 
