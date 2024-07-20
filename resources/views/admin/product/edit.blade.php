@@ -1,70 +1,64 @@
-<!-- resources/views/products/edit.blade.php -->
 <x-app-layout>
-    <div class="flex flex-col justify-center items-center">
-        <h1 class="text-2xl font-medium mt-3">Edit Product</h1>
+    <main>
+        <div class="flex flex-col justify-center items-center">
+            <h1 class="text-2xl font-medium mt-3">Edit Product</h1>
 
-        <form action="{{ route('product.update', $products->id) }}" method="POST" enctype="multipart/form-data">
-                        
-            @csrf
-            @method('PUT')
+            <form action="{{ route('product.update', $products->id) }}" class="max-w-xl w-full mt-3" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
 
-            <div class="form-group mb-3">
-                <label class="font-weight-bold">nama</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" name="nama" value="{{ old('nama', $products->nama) }}" placeholder="Masukkan Judul Product">
-            
-                <!-- error message untuk title -->
-                @error('nama')
-                    <div class="alert alert-danger mt-2">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-
-            <div class="form-group mb-3">
-                <label class="font-weight-bold">gambar</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" name="gambar">
-            
-                <!-- error message untuk image -->
-                @error('gambar')
-                    <div class="alert alert-danger mt-2">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
-                        <label class="font-weight-bold">harga</label>
-                        <input type="number" class="form-control @error('price') is-invalid @enderror" name="harga" value="{{ old('harga', $products->harga) }}" placeholder="Masukkan Harga Product">
-                    
-                        <!-- error message untuk price -->
-                        @error('harga')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+                <div class="mb-5">
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
+                    <input type="text" name="nama"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5.5"
+                        value="{{ old('nama', $products->nama) }}" placeholder="Masukkan Judul Product">
+                    @error('nama')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
-                        <label class="font-weight-bold">stok</label>
-                        <input type="number" class="form-control @error('stok') is-invalid @enderror" name="stok" value="{{ old('stok', $products->stok) }}" placeholder="Masukkan Stock Product">
-                    
-                        <!-- error message untuk stock -->
-                        @error('stok')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                </div>
-            </div>
 
-            <a href="admin.dashboard">
-            <button type="submit" class="btn btn-md btn-primary me-3">UPDATE</button>
-            </a>
-            
-        </form> 
-    </div>
+                <div class="mb-5">
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Gambar</label>
+                    <input type="file" name="gambar"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5.5">
+                    @error('gambar')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="mb-5">
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Harga</label>
+                    <input type="number" name="harga"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5.5"
+                        value="{{ old('harga', $products->harga) }}" placeholder="Masukkan Harga Product">
+                    @error('harga')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="mb-5">
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Stok</label>
+                    <input type="number" name="stok"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5.5"
+                        value="{{ old('stok', $products->stok) }}" placeholder="Masukkan Stock Product">
+                    @error('stok')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-5.5 text-center mt-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    UPDATE
+                </button>
+            </form>
+        </div>
+    </main>
 </x-app-layout>
