@@ -126,7 +126,7 @@ class HomeController extends Controller
 
         // Delete product
         $product->delete();
-
+        
         return redirect()->back();
     }
 }
