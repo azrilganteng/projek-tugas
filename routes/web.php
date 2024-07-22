@@ -3,13 +3,20 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ImportController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductPdfController;
 
-Route::get('export-excel',[UserController::class, 'export_excel']);
+Route::get('export-pdf', [ProductPdfController::class, 'exportPdf']);
+
 
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('upload-pdf', function() {
+    return view('products.upload');
 });
 
 Route::get('/dashboard', function () {
@@ -33,8 +40,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/product/{id}/edit', [HomeController::class, 'edit'])->name('admin.product.edit');
     Route::put('/products/{id}', [HomeController::class, 'update'])->name('product.update');
     Route::delete('admin/product/{id}/hapus', [HomeController::class, 'destroy'])->name('product.destroy');
-    
-   
+    Route::get('export', [ProductController::class, 'export'])->name('export');
+    Route::post('import', [ProductController::class, 'import'])->name('import');
+    Route::get('export-pdf', [ProductPdfController::class, 'export'])->name('exportPdf');
+    Route::get('export-excel',[ProductController::class, 'export_excel']);
+    Route::get('admin/importPage', [HomeController::class, 'importPage'])->name('admin.importPage');
+    Route::post('/import', [ImportController::class, 'import'])->name('import');
+
     // routes/web.php
     // Route::get('admin/products/crud', [ProductController::class, 'crud'])->name('admin.product.crud');
 

@@ -21,6 +21,13 @@ class HomeController extends Controller
         return view('admin.product.create');
     }
 
+    public function importPage()
+    {
+        return view('admin.importPage');
+    }
+
+    
+
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -112,6 +119,7 @@ class HomeController extends Controller
 
         }
         
+       
 
 
 

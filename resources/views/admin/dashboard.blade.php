@@ -8,17 +8,23 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-8">
-                <div class="p-6 text-gray-900">
-                    {{ __('kamu login') }}
-
+                <div class="p-6 text-gray-900 flex justify-between items-center">
+                    <div>
+                        {{ __('Silahkan Masukan Data') }}
+                    </div>
+                    <div>
+                        <a
+                            href="{{ route('admin.product.create') }}" 
+                            class="bg-blue-500 hover:bg-blue-700 text-white no-underline font-bold py-2 px-4 rounded cursor-pointer">
+                            Tambah Data
+                        </a>
+                        
+                    </div>
                 </div>
             </div>
-
-            <div class="mb-8 ">
-                <a
-                    href="{{ route('admin.product.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white no-underline font-bold py-2 px-4 rounded cursor-pointer width: 130px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
-                    TambahData</a>
-            </div>
+       
+        
+            
             
             <table class="w-full text-sm text-center rtl:text-right text-black-500 my-3">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -43,6 +49,7 @@
                 </thead>
 
                 <tbody>
+                     
                     @foreach ($products as $product)    
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row"
@@ -50,7 +57,7 @@
                             {{ $product->nama }}
                         </th>
                         <td class="px-6 py-4">
-                            <img src="{{ asset($product->gambar) }}" alt="{{ $product->nama }}" class="w-full h-48 object-cover">
+                            <img src="{{ asset('storage/' . $product->gambar) }}" alt="{{ $product->nama }}" class="w-full h-48 object-cover">
                         </td>
                         <td class="px-6 py-4">
                             {{ $product->harga }}
