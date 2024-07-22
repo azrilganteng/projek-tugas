@@ -1,38 +1,39 @@
 <x-app-layout>
-    <div class="flex flex-col justify-center items-center">
-        <h1 class="text-2xl font-medium mt-3">Tambah Product</h1>
-
-        <form action="{{ route('admin.product.create') }}" class="max-w-xl w-full mt-3" method="POST" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <div class="mb-5">
-                <label class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
-                <input type="text" name="nama"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5.5"
-            >
-                </div>
+    <div>
+    <div class="flex justify-center items-center mt-20 bg-gray-900">
+    <h1 class="text-2xl mb-4 text-white font-extrabold">Tambah Product</h1>
+    </div>
+    <div class="flex justify-center items-center mb-50 bg-gray-900">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6 max-w-md w-full">
             
 
-            <div class="mb-5">
-                <label class="block mb-2 text-sm font-medium text-gray-900">Gambar</label>
-                <input type="file" name="gambar"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5.5">
-            </div>
+            <form action="{{ route('admin.product.create') }}" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
 
-            <div class="mb-5">
-                <label class="block mb-2 text-sm font-medium text-gray-900">Harga</label>
-                <input type="number" name="harga" id="harga"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5.5">
-            </div>
+                <div class="mb-4">
+                    <label for="nama" class="block text-sm font-medium text-white mb-2">Nama</label>
+                    <input type="text" id="nama" name="nama" required class="shadow-lg max-w-md w-full block mb-10 bg-gray-700 dark:text-white">
+                </div>
 
-            <div class="mb-5">
-                    <label class="block mb-2 text-sm font-medium text-gray-900">Stok</label>
-                    <input type="text" name="stok"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5.5">
-            </div>
+                <div class="mb-4">
+                    <label for="gambar" class="block text-sm font-medium text-white mb-2">Gambar</label>
+                    <input type="file" id="gambar" name="gambar" required class="shadow-lg max-w-md w-full block mb-10 bg-gray-700 dark:text-white">
+                </div>
 
+                <div class="mb-4">
+                    <label for="harga" class="block text-sm font-medium text-white mb-2">Harga</label>
+                    <input type="number" id="harga" name="harga" required class="shadow-lg max-w-md w-full block mb-10 bg-gray-700 dark:text-white">
+                </div>
 
+                <div class="mb-4">
+                    <label for="stok" class="block text-sm font-medium text-white mb-2">Stok</label>
+                    <input type="text" id="stok" name="stok" required class="shadow-lg max-w-md w-full block mb-10 bg-gray-700 dark:text-white">
+                </div>
 
-            <button type="submit"class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-5.5 text-center mt-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-        </form>
+                <div class="flex justify-end">
+                <button type="submit" class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Import</button>
+                </div>
+            </form>
+        </div>
     </div>
 </x-app-layout>
